@@ -4,8 +4,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        String input = "X|7/|9-|X|-8|8/|-6|X|X|X81";
+        String input = "X|7/|9-|X|-8|8/|-6|X|X|X||81";
         List<Integer> intList = new ArrayList<>();
+        List<Character> charList = new ArrayList<>();
 
         // Eliminar el último "" para simplificar el procesamiento
         input = input.replace("||", "|");
@@ -16,10 +17,13 @@ public class Main {
         for (String frame : frames) {
             for (int i = 0; i < frame.length(); i++) {
                 char c = frame.charAt(i);
+                charList.add(c);
+
 
                 if (c == 'X') {
                     // "X" representa 10 puntos
                     intList.add(10);
+
                 } else if (c == '/') {
                     // "/" representa un spare, que hace que el segundo lanzamiento complete los 10 pines
                     // Necesitamos calcular el spare respecto al primer lanzamiento en el frame
