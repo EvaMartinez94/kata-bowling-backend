@@ -1,5 +1,4 @@
 package org.example;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,19 +36,19 @@ public class Main {
     List<Integer> intList = new ArrayList<>();
     input = input.replace("||", "|");
 
-    // Convertir cada sección separada por "|" en valores numéricos
-    String[] frames = input.split("\\|");
+        // Convertir cada sección separada por "|" en valores numéricos
+        String[] frames = input.split("\\|");
 
-    for (String frame : frames) {
-      for (int i = 0; i < frame.length(); i++) {
-        char c = frame.charAt(i);
+        for (String frame : frames) {
+            for (int i = 0; i < frame.length(); i++) {
+                char c = frame.charAt(i);
 
-        if (c == 'X') {
-          // "X" representa 10 puntos
-          intList.add(10);
-        } else if (c == '/') {
-          // "/" representa un spare, que hace que el segundo lanzamiento complete los 10 pines
-          // Necesitamos calcular el spare respecto al primer lanzamiento en el frame
+                if (c == 'X') {
+                    // "X" representa 10 puntos
+                    intList.add(10);
+                } else if (c == '/') {
+                    // "/" representa un spare, que hace que el segundo lanzamiento complete los 10 pines
+                    // Necesitamos calcular el spare respecto al primer lanzamiento en el frame
 
           // Crear lista y añadir a intList, dentro de la nueva lista añadir previousValue añadir
           // linea 29 (osea añadirias 7 y 3)
