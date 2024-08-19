@@ -22,17 +22,17 @@ public class Main {
                 charList.add(c);}}
         for (int i=0; i < charList.size(); i++) {
             char roll = charList.get(i);
-                    if (roll == "/") {
+                    if (roll == '/') {
                         int previousValue = charList.get(charList.size() - 1);
                         totalScore += (10 - previousValue);
                         Character nextValue = charList.get(charList.size() + 1);
                         if (nextValue.equals("X")) {
                             totalScore += 10;
                         }
-                    }else if (roll.equals("-")) {
+                    }else if (roll =='-') {
                         totalScore += 0;
 
-                    }else if (roll.equals("X"){
+                    }else if (roll=='X'){
                         totalScore +=10};
         }
     }else {
