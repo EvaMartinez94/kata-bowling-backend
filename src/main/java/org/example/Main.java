@@ -1,4 +1,5 @@
 package org.example;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,11 +9,11 @@ public class Main {
   private static final Integer FINAL_ROUND = 10;
 
   public static void main(String[] args) {
-    String input = "X|7/|9-|X|-8|8/|-6|X|X|X81";
+    String input = "X|7/|9-|X|-8|8/|-6|X|X|7/8";
     List<Integer> intList = parseScore(input);
     Integer totalScore = 0;
     Integer round = 1;
-    for (int i = 0; i < intList.size(); i++) {
+    for (int i = 0; i < intList.size() && round <= FINAL_ROUND; i++) {
       Integer value = intList.get(i);
       if (FINAL_ROUND == round && STRIKE == value) {
         totalScore += STRIKE;
@@ -36,23 +37,18 @@ public class Main {
     List<Integer> intList = new ArrayList<>();
     input = input.replace("||", "|");
 
-        // Convertir cada sección separada por "|" en valores numéricos
-        String[] frames = input.split("\\|");
+    // Convertir cada sección separada por "|" en valores numéricos
+    String[] frames = input.split("\\|");
 
-        for (String frame : frames) {
-            for (int i = 0; i < frame.length(); i++) {
-                char c = frame.charAt(i);
+    for (String frame : frames) {
+      for (int i = 0; i < frame.length(); i++) {
+        char c = frame.charAt(i);
 
-                if (c == 'X') {
-                    // "X" representa 10 puntos
-                    intList.add(10);
-                } else if (c == '/') {
-                    // "/" representa un spare, que hace que el segundo lanzamiento complete los 10 pines
-                    // Necesitamos calcular el spare respecto al primer lanzamiento en el frame
-
-          // Crear lista y añadir a intList, dentro de la nueva lista añadir previousValue añadir
-          // linea 29 (osea añadirias 7 y 3)
-          // Y ahora borrar la posición anterior (en este caso el 7)
+        if (c == 'X') {
+          // "X" representa 10 puntos
+          intList.add(10);
+        } else if (c == '/') {
+          // "/" representa un spare, que hace que el segundo lanzamiento complete los 10 bolos
 
           int previousValue = intList.get(intList.size() - 1);
           intList.add(10 - previousValue);
