@@ -6,6 +6,9 @@ public class Main {
     public static void main(String[] args) {
         String input = "X|7/|9-|X|-8|8/|-6|X|X|X81";
         List<Integer> intList = new ArrayList<>();
+        List<Character> charList = new ArrayList<>();
+
+        int totalScore = 0;
 
         // Eliminar el último "" para simplificar el procesamiento
         input = input.replace("||", "|");
@@ -16,8 +19,27 @@ public class Main {
         for (String frame : frames) {
             for (int i = 0; i < frame.length(); i++) {
                 char c = frame.charAt(i);
+                charList.add(c);}}
+        for (int i=0; i < charList.size(); i++) {
+            char roll = charList.get(i);
+                    if (roll == "/") {
+                        int previousValue = charList.get(charList.size() - 1);
+                        totalScore += (10 - previousValue);
+                        Character nextValue = charList.get(charList.size() + 1);
+                        if (nextValue.equals("X")) {
+                            totalScore += 10;
+                        }
+                    }else if (roll.equals("-")) {
+                        totalScore += 0;
 
-                if (c == 'X') {
+                    }else if (roll.equals("X"){
+                        totalScore +=10};
+        }
+    }else {
+                            totalScore += Character.getNumericValue(nextValue);
+                        }
+                }
+            /*if (c == 'X') {
                     // "X" representa 10 puntos
                     intList.add(10);
                 } else if (c == '/') {
@@ -40,5 +62,8 @@ public class Main {
         }
 
         System.out.println(intList);
+    }*/
+            }
+        }
     }
 }
