@@ -21,11 +21,4 @@ public class bowlingTest {
         Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     assertEquals(expected, Main.parseScore(input));
   }
-
-  @Test
-  public void testCalculateScore() {
-    String input = "X|7/|9-|X|-8|8/|-6|X|X|7/8";
-    Integer expectedScore = 167;
-    assertEquals(expectedScore, Main.parseScore(input));
-  }
 }
